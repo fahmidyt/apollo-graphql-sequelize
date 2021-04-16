@@ -1,0 +1,24 @@
+type Pokemon {
+    id: ID!
+    typeId: ID!
+    Type: Type
+    name: String!
+    hp: Int
+    defense: Int
+    createdAt: Date
+    updatedAt: Date
+    deletedAt: Date
+}
+
+type Query {
+    # Query get all pokemon
+    pokemons(limit: Int): [Pokemon]
+
+    # Query get all pokemon by id
+    pokemon(id: ID) : Pokemon 
+}
+
+type Mutation {
+    addPokemon(typeId: ID!, name: String!, hp: Int, defense: Int): Pokemon
+    updatePokemon(id: ID!, typeId: ID!, name: String!, hp: Int, defense: Int): Pokemon
+}
